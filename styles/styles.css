@@ -1,0 +1,687 @@
+/* Elimina el margen y padding predeterminado de los navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.space-mono-regular {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .space-mono-regular-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .space-mono-bold-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+}
+  
+
+body {
+    font-family: "Space Mono", monospace;
+    line-height: 1.6;
+    color: #854a91;
+    background-color: #e7e6e4;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 300;
+    line-height: 50px;
+    text-align: left;
+    line-height: 130px;
+    /* Centra el texto del título horizontalmente */
+}
+
+
+p {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+li{
+    list-style: none; 
+}
+
+div.container {
+    max-width: 1800px;
+    /* Ancho máximo del contenido */
+    margin: 0 auto;
+    padding: 2rem 0rem;
+    /* border: 1px solid red; */
+    /* background-color: #f5f5f5; */
+}
+
+header {
+    position: relative;
+    /* Centra el texto del encabezado */
+}
+
+/* -------------------------------------------------------- */
+/* ******************  menu  ********************* */
+/* -------------------------------------------------------- */
+ 
+/* .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+    z-index: 1000;
+    transform: translateY(0);
+
+   
+}
+
+
+
+
+#tu-menu {
+    position: fixed; 
+    left: 0;
+    top: 20px; 
+    transition: transform 0.3s ease; 
+  z-index: 100000;
+  border:1px solid blue;
+} */
+
+/* .sticky {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    transform: translateX(-100%); 
+    transition: transform 0.5s ease; 
+    z-index: 1000;
+    border:1pz solid red;
+} */
+
+ /* #tu-menu {
+    position: fixed;   
+    left: 0;
+    top: 0; 
+    transition: transform 0.3s ease; 
+    transform: translateY(0); 
+    z-index: 100000;
+    border: 1px solid blue;
+} 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ocultar el menú por defecto */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+    z-index: 999;
+    border:1px solid green;   
+}
+
+/* Mostrar el menú */
+.menu-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu-content {
+    text-align: center;
+    color: white;
+}
+
+.menu-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-content ul li {
+    margin: 20px 0;
+}
+
+.menu-content ul li a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+/* Botón de cerrar el menú */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: red;
+    cursor: pointer;
+}
+
+/* Animación de la firma cuando haces scroll */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+span.bold {
+    font-weight: 600;
+}
+
+
+div.item {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.menu {
+    width: 6rem;
+    height: 12rem;
+    position: relative;
+    border:1px solid red;
+}
+
+img.menu-item {
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el ancho del contenedor */
+    max-height: 100%;
+    /* Asegura que la imagen no exceda la altura del contenedor */
+    object-fit: contain;
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre la imagen */
+    transition: transform 0.3s ease;
+    /* Transición para la animación */
+    position: absolute;
+    /* Asegúrate de que ambas imágenes sean absolutas */
+    left: 50%;
+    /* Centra horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajusta para centrar */
+    border:1px solid red;
+}
+
+div.menu img:nth-child(1) {
+    left: 0%;
+    /* Centra horizontalmente */
+    top: 22%;
+    /* Ajusta esta posición según necesites */
+    transform: translate(-50%, -50%);
+    /* Ajusta para centrar */
+    z-index: 2;
+}
+
+div.menu img:nth-child(2) {
+    left: 50%;
+    /* Centra horizontalmente */
+    top: 70%;
+    /* Ajusta esta posición según necesites */
+    transform: translate(-50%, -50%);
+    /* Ajusta para centrar */
+    z-index: 1;
+}
+
+.mariposa {
+    animation: aleteo .8s linear alternate infinite;
+}
+
+
+@keyframes aleteo {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    25% {
+        transform: rotate(2deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    50% {
+        transform: rotate(0deg) scale(0.95);
+        /* Escala un poco más pequeño */
+    }
+
+    75% {
+        transform: rotate(2deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+}
+
+
+.isasvg-hover {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border:1px solid black;
+    
+}
+
+.isasvg-hover:hover {
+    transform: scale(1.1);
+    /* Agranda el SVG */
+    opacity: 0.8;
+}
+
+
+/* */
+/* Espaciado entre secciones */
+
+/* -------------------------------------------------------- */
+/* ******************  Empieza Slider  ********************* */
+/* -------------------------------------------------------- */
+
+.contenedor {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+}
+.control_slider {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 20;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    background-color: rgba(133, 74, 145, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    transition-duration: .4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.control_slider svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+.control_slider:hover {
+    /* background-color: rgba(0, 0, 0, .8); */
+    background-color: #854a91;
+}
+
+.controlL {
+    left: 15px;
+}
+
+.controlR {
+    right: 15px;
+}
+
+
+.cont_slider {
+    width: 200%;
+    height: auto;
+    overflow: auto;
+
+}
+
+.swiper_slider {
+    width: calc(100% / 8);
+    float: left;
+    display: block;
+    position: relative;
+    background-color: #8993aa;
+    overflow: hidden;
+    height: calc(100% / 8);
+    /* Ajustar altura para que se mantenga cuadrada */
+}
+
+.desaparece {
+    width: 0 !important;
+}
+
+
+.img_slide {
+    transition-duration: .4s;
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* Ajustar para que la imagen llene el contenedor cuadrado */
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+.swiper_slider:hover .img_slide {
+    transform: scale(1.2);
+    opacity: .4;
+}
+
+.titulo_slide {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #854a91;
+    visibility: hidden;
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+.swiper_slider:hover .titulo_slide {
+    visibility: visible;
+}
+
+
+/* -------------------------------------------------------- */
+/* ******************  Termina Slider  ********************* */
+/* -------------------------------------------------------- */
+/* -------------------------------------------------------- */
+/* ******************  presentación  ********************* */
+/* -------------------------------------------------------- */
+
+.icono-rayo {
+    width: 3rem; /* Ajusta el tamaño del ícono */
+    height: auto;
+    vertical-align: middle; /* Alinea el ícono con el texto */
+}
+
+div.text {
+    max-width: 50%;
+
+}
+
+p.presentacion span {
+    font-size: 3rem;
+}
+
+.contenedor-cajas {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja.imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nube {
+    animation: mover 20s linear infinite;
+}
+
+@keyframes mover {
+    0%, 100% {
+    transform: translate(0, 0);
+    }
+
+    50% {
+    transform: translate(50px, 0);
+    }
+
+    80% {
+    transform: translate(-50px, 0);
+    }
+
+}
+
+.caja.imagen img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor-cajas {
+        flex-direction: column; /* Las cajas estarán una arriba de la otra en pantallas más pequeñas */
+    }
+    
+    .caja {
+        margin-bottom: 20px; /* Añadir espacio entre las cajas cuando se apilan */
+    }
+
+    .caja.imagen {
+        justify-content: center;
+        align-items: center;
+    }
+
+    div.container {
+        padding: 2rem 2rem;
+    }
+
+    div.text {
+        max-width: 100%;
+    
+    }
+    p {
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+        font-weight: 200;
+    }
+}
+/* -------------------------------------------------------- */
+/* ******************  Video  ********************* */
+/* -------------------------------------------------------- */
+
+/* Asegura que el contenedor cubra todo el ancho y alto del viewport */
+.video-contenedor {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* 100% del alto del viewport */
+    overflow: hidden;
+    border: 1px solid red; 
+}
+
+/* El contenedor para el iframe de YouTube */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* El video va por detrás del contenido */
+}
+
+/* Ajusta el iframe de YouTube para que ocupe todo el contenedor */
+.video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para que no se pueda hacer clic en el video */
+    object-fit: cover; /* Hace que el video ocupe el espacio sin deformarse */
+}
+
+/* Estilo del contenido sobre el video */
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    z-index: 10; /* El contenido debe estar encima del video */
+    padding: 1rem;
+}
+
+/* Mejora para pantallas pequeñas */
+@media (max-width: 768px) {
+    .video-contenedor {
+        height: 70vh; /* Reduce la altura del contenedor en pantallas pequeñas */
+    }
+
+    .contenido {
+        font-size: 1.2rem; /* Ajusta el tamaño de texto */
+        padding: 0.5rem; /* Menos padding para pantallas pequeñas */
+    }
+
+    .video-background iframe {
+        object-fit: contain; /* Evita que se recorte el video en pantallas pequeñas */
+    }
+}
+
+/* Ajuste adicional para pantallas muy pequeñas (por ejemplo, móviles) */
+@media (max-width: 480px) {
+    .video-contenedor {
+        height: 60vh; /* Aún más pequeña para móviles */
+    }
+
+    .contenido {
+        font-size: 1rem; /* Texto más pequeño en móviles */
+    }
+
+    .video-background iframe {
+        object-fit: contain; /* El video se adapta mejor a pantallas más pequeñas */
+    }
+}
+/* -------------------------------------------------------- */
+/* ******************  servicios  ********************* */
+/* -------------------------------------------------------- */
+
+ul.servicios {
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 2%;
+    padding: 0;
+}
+
+ul.servicios li {
+    list-style: none;
+    font-size: 2rem;
+    font-weight: 300;
+    position: relative; /* Añadido para posicionar el icono correctamente */
+    padding-left: 1.5em; /* Ajustar el espacio a la izquierda para el icono */
+}
+
+ul.servicios li::before {
+    content: ""; /* Ya no usaremos "⚡", sino un SVG como fondo */
+    display: inline-block;
+    width: 1em;
+    height: 1em; /* Tamaño del icono */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('../imgs/thunder.svg'); /* Aquí se coloca la ruta de tu icono SVG */
+    background-size: contain; /* Asegura que el SVG se escale adecuadamente */
+    background-repeat: no-repeat;
+}
+
+ul.servicios li:nth-child(1)::before {
+    content: none; /* No mostrar el ícono en el primer elemento, si es necesario */
+}
+
+/* -------------------------------------------------------- */
+/* ******************  contacto  ********************* */
+/* -------------------------------------------------------- */
+
+div.contacto {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #33355a;
+    color: #fff;
+   
+}
+p.footer {
+    font-size: 1rem;
+}
+.enlace {
+    position: relative;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #8993aa;
+    overflow: hidde;
+    background: linear-gradient(to right, #bb8cc5, #ac72b7 50%, #8993aa 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none; /* text decorations are clipped in WebKit browsers */   
+}
+
+.enlace:hover {
+    background-position: 0 100%;
+    
+}
+
+

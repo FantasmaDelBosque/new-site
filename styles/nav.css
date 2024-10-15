@@ -1,0 +1,127 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+div.menu {
+    width: 6rem;
+    height: 12rem;
+    position: relative;
+    /* Para usar position en los elementos hijos */
+}
+
+img.menu-item {
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el ancho del contenedor */
+    max-height: 100%;
+    /* Asegura que la imagen no exceda la altura del contenedor */
+    object-fit: contain;
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre la imagen */
+    transition: transform 0.3s ease;
+    /* Transición para la animación */
+    position: absolute;
+    /* Asegúrate de que ambas imágenes sean absolutas */
+    left: 50%;
+    /* Centra horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajusta para centrar */
+}
+
+div.menu img:nth-child(1) {
+    left: 0%;
+    /* Centra horizontalmente */
+    top: 22%;
+    /* Ajusta esta posición según necesites */
+    transform: translate(-50%, -50%);
+    /* Ajusta para centrar */
+    z-index: 2;
+}
+
+div.menu img:nth-child(2) {
+    left: 50%;
+    /* Centra horizontalmente */
+    top: 70%;
+    /* Ajusta esta posición según necesites */
+    transform: translate(-50%, -50%);
+    /* Ajusta para centrar */
+    z-index: 1;
+}
+
+.mariposa {
+    animation: aleteo .8s linear alternate infinite;
+}
+
+
+@keyframes aleteo {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    25% {
+        transform: rotate(2deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    50% {
+        transform: rotate(0deg) scale(0.95);
+        /* Escala un poco más pequeño */
+    }
+
+    75% {
+        transform: rotate(2deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+}
+
+
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.menu-item {
+    margin-right: 10px; /* Espaciado entre las imágenes */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #0073e6; /* Color de hover */
+}
+
+.isasvg-hover {
+    transition: transform 0.3s ease-in-out;
+}
+
+.isasvg-hover:hover {
+    transform: scale(1.1); /* Animación hover para tu firma */
+}
