@@ -1,10 +1,5 @@
-/* Elimina el margen y padding predeterminado de los navegadores */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.space-mono-regular {
+
+/* .space-mono-regular {
     font-family: "Space Mono", monospace;
     font-weight: 400;
     font-style: normal;
@@ -26,8 +21,14 @@
     font-family: "Space Mono", monospace;
     font-weight: 700;
     font-style: italic;
+} */
+
+/* Elimina el margen y padding predeterminado de los navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-  
 
 body {
     font-family: "Space Mono", monospace;
@@ -47,7 +48,6 @@ h1 {
     line-height: 50px;
     text-align: left;
     line-height: 130px;
-    /* Centra el texto del título horizontalmente */
 }
 
 
@@ -57,8 +57,12 @@ p {
     font-weight: 300;
 }
 
-li{
+li {
     list-style: none; 
+}
+
+span.bold {
+    font-weight: 600;
 }
 
 div.container {
@@ -66,19 +70,109 @@ div.container {
     /* Ancho máximo del contenido */
     margin: 0 auto;
     padding: 2rem 0rem;
-    /* border: 1px solid red; */
-    /* background-color: #f5f5f5; */
+    /* border:1px solid darkorchid; */
 }
 
-header {
-    position: relative;
-    /* Centra el texto del encabezado */
-}
+
 
 /* -------------------------------------------------------- */
 /* ******************  menu  ********************* */
 /* -------------------------------------------------------- */
- 
+nav {
+    /* position: relative; */
+    width:100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.item {
+    border:2px solid blue;
+    position: relative;
+    cursor: pointer;
+}
+
+div.firma {
+    width: auto;
+    height: 20rem;
+}
+
+img.firma-item {
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el ancho del contenedor */
+    max-height: 100%;
+    /* Asegura que la imagen no exceda la altura del contenedor */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    position: absolute;
+    left: 0;
+    transform: translate(-50%, -50%);  
+}
+
+div.firma img:nth-child(1) {
+    left: 0%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+div.firma img:nth-child(2) {
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.mariposa {
+    animation: aleteo .8s linear alternate infinite;
+}
+
+
+@keyframes aleteo {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    25% {
+        transform: rotate(2deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    50% {
+        transform: rotate(0deg) scale(0.95);
+        /* Escala un poco más pequeño */
+    }
+
+    75% {
+        transform: rotate(2deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+        /* Mantén scale en 1 */
+    }
+}
+
+
+.isasvg-hover {
+    transition: transform 0.3s ease, opacity 0.3s ease;    
+}
+
+.isasvg-hover:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+
+
+
+
 /* .sticky {
     position: fixed;
     top: 0;
@@ -86,9 +180,7 @@ header {
     transform: translateX(-100%);
     transition: all 0.5s ease;
     z-index: 1000;
-    transform: translateY(0);
-
-   
+    transform: translateY(0);   
 }
 
 
@@ -148,6 +240,7 @@ header {
 
 
 /* Ocultar el menú por defecto */
+
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -200,137 +293,6 @@ header {
     color: red;
     cursor: pointer;
 }
-
-/* Animación de la firma cuando haces scroll */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-span.bold {
-    font-weight: 600;
-}
-
-
-div.item {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-div.menu {
-    width: 6rem;
-    height: 12rem;
-    position: relative;
-    border:1px solid red;
-}
-
-img.menu-item {
-    max-width: 100%;
-    /* Asegura que la imagen no exceda el ancho del contenedor */
-    max-height: 100%;
-    /* Asegura que la imagen no exceda la altura del contenedor */
-    object-fit: contain;
-    cursor: pointer;
-    /* Cambia el cursor al pasar sobre la imagen */
-    transition: transform 0.3s ease;
-    /* Transición para la animación */
-    position: absolute;
-    /* Asegúrate de que ambas imágenes sean absolutas */
-    left: 50%;
-    /* Centra horizontalmente */
-    transform: translate(-50%, -50%);
-    /* Ajusta para centrar */
-    border:1px solid red;
-}
-
-div.menu img:nth-child(1) {
-    left: 0%;
-    /* Centra horizontalmente */
-    top: 22%;
-    /* Ajusta esta posición según necesites */
-    transform: translate(-50%, -50%);
-    /* Ajusta para centrar */
-    z-index: 2;
-}
-
-div.menu img:nth-child(2) {
-    left: 50%;
-    /* Centra horizontalmente */
-    top: 70%;
-    /* Ajusta esta posición según necesites */
-    transform: translate(-50%, -50%);
-    /* Ajusta para centrar */
-    z-index: 1;
-}
-
-.mariposa {
-    animation: aleteo .8s linear alternate infinite;
-}
-
-
-@keyframes aleteo {
-
-    0%,
-    100% {
-        transform: rotate(0deg) scale(1);
-        /* Mantén scale en 1 */
-    }
-
-    25% {
-        transform: rotate(2deg) scale(1);
-        /* Mantén scale en 1 */
-    }
-
-    50% {
-        transform: rotate(0deg) scale(0.95);
-        /* Escala un poco más pequeño */
-    }
-
-    75% {
-        transform: rotate(2deg) scale(1);
-        /* Mantén scale en 1 */
-    }
-
-    100% {
-        transform: rotate(0deg) scale(1);
-        /* Mantén scale en 1 */
-    }
-}
-
-
-.isasvg-hover {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    border:1px solid black;
-    
-}
-
-.isasvg-hover:hover {
-    transform: scale(1.1);
-    /* Agranda el SVG */
-    opacity: 0.8;
-}
-
-
-/* */
-/* Espaciado entre secciones */
 
 /* -------------------------------------------------------- */
 /* ******************  Empieza Slider  ********************* */

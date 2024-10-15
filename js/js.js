@@ -85,7 +85,7 @@ $(document).ready(function(){
 
   // Segundo código (Menú y firma sticky)
 document.addEventListener('DOMContentLoaded', function() {
-  const menu = document.querySelector('.menu');
+  const menu = document.querySelector('.item');
   const menuOverlay = document.getElementById('menu-overlay');
   const closeMenu = document.getElementById('close-menu');
   const isaCz = document.getElementById('isacz');
