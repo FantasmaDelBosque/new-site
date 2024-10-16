@@ -105,30 +105,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
   
 
-  
+$(document).ready(function() {
+  var headerHeight = $('.header').outerHeight(); // Obtiene la altura del header
+  var nav = $('nav'); // Selecciona el elemento nav
 
+  // Escucha el evento scroll
+  $(window).on('scroll', function() {
+      var scrollTop = $(window).scrollTop(); // Detecta la cantidad de scroll
 
-
-let lastScrollY = window.scrollY; // Almacena la posición anterior del scroll
-const menu = document.getElementById('tu-menu'); // Cambia 'tu-menu' por el ID de tu menú
-
-window.addEventListener('scroll', function() {
-    console.log(`Scroll Y: ${window.scrollY}`); // Muestra la posición de scroll actual
-
-    if (window.scrollY > 100) { // Ajusta el valor según necesites
-        if (window.scrollY > lastScrollY) {
-            // El usuario está desplazándose hacia abajo
-            menu.classList.add('sticky'); // Añade la clase para mostrar el menú
-            console.log('Menú activado'); // Mensaje para verificar que se activó el menú
-        } else {
-            // El usuario está desplazándose hacia arriba
-            menu.classList.remove('sticky'); // Remueve la clase para ocultar el menú
-            console.log('Menú desactivado'); // Mensaje para verificar que se desactivó el menú
-        }
-    } else {
-        menu.classList.remove('sticky'); // Remueve la clase si no se ha desplazado lo suficiente
-        console.log('Menú fuera de rango'); // Mensaje para cuando no se ha desplazado lo suficiente
-    }
-
-    lastScrollY = window.scrollY; // Actualiza la posición anterior del scroll
+      // Si el usuario ha hecho scroll más allá del header
+      if (scrollTop > headerHeight) {
+          nav.addClass('scrolled'); // Añade la clase para reducir y mover el menú
+      } else {
+          nav.removeClass('scrolled'); // Elimina la clase cuando el usuario vuelve al tope
+      }
+  });
 });

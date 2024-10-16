@@ -78,20 +78,59 @@ div.container {
 /* -------------------------------------------------------- */
 /* ******************  menu  ********************* */
 /* -------------------------------------------------------- */
+
+.header {
+    width: 100%;
+    height: 800px;
+}
+
+
 nav {
-    /* position: relative; */
-    width:100%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.5s ease; /* Suaviza las transiciones */
 }
 
+
+nav.scrolled {
+    top: 10px; /* Se mantiene un poco debajo del borde superior */
+    left: auto;
+    right: 20px; /* Alineado a la derecha */
+    width: 150px; /* Menú más pequeño */
+    height: auto;
+    display: flex;
+    justify-content: flex-end; /* El contenido se alinea a la derecha */
+    
+}
+
+nav.scrolled .firma {
+    height:150px; /* Se reduce la firma */
+}
+
+nav.scrolled .firma-item {
+    max-height: 50%; /* Tamaño más pequeño para las imágenes */
+    object-fit: contain;
+    
+}
+
+nav.scrolled .isasvg-hover {
+    width: 100px; /* Tamaño más pequeño para el nombre artístico */
+    height: auto;
+}
+
+
 div.item {
-    border:2px solid blue;
     position: relative;
     cursor: pointer;
+    transform: translate(0%, 30%);
 }
 
 div.firma {
@@ -171,74 +210,6 @@ div.firma img:nth-child(2) {
 
 
 
-
-
-/* .sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translateX(-100%);
-    transition: all 0.5s ease;
-    z-index: 1000;
-    transform: translateY(0);   
-}
-
-
-
-
-#tu-menu {
-    position: fixed; 
-    left: 0;
-    top: 20px; 
-    transition: transform 0.3s ease; 
-  z-index: 100000;
-  border:1px solid blue;
-} */
-
-/* .sticky {
-    position: fixed;
-    top: 0; 
-    left: 0;
-    transform: translateX(-100%); 
-    transition: transform 0.5s ease; 
-    z-index: 1000;
-    border:1pz solid red;
-} */
-
- /* #tu-menu {
-    position: fixed;   
-    left: 0;
-    top: 0; 
-    transition: transform 0.3s ease; 
-    transform: translateY(0); 
-    z-index: 100000;
-    border: 1px solid blue;
-} 
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Ocultar el menú por defecto */
 
 .menu-overlay {
@@ -254,8 +225,7 @@ div.firma img:nth-child(2) {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.3s ease;
-    z-index: 999;
-    border:1px solid green;   
+    z-index: 999;  
 }
 
 /* Mostrar el menú */
@@ -417,7 +387,7 @@ div.text {
 }
 
 p.presentacion span {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .contenedor-cajas {
@@ -435,24 +405,6 @@ p.presentacion span {
     align-items: center;
 }
 
-.nube {
-    animation: mover 20s linear infinite;
-}
-
-@keyframes mover {
-    0%, 100% {
-    transform: translate(0, 0);
-    }
-
-    50% {
-    transform: translate(50px, 0);
-    }
-
-    80% {
-    transform: translate(-50px, 0);
-    }
-
-}
 
 .caja.imagen img {
     max-width: 100%;
@@ -601,6 +553,26 @@ ul.servicios li::before {
 ul.servicios li:nth-child(1)::before {
     content: none; /* No mostrar el ícono en el primer elemento, si es necesario */
 }
+
+.nube {
+    animation: mover 20s linear infinite;
+}
+
+@keyframes mover {
+    0%, 100% {
+    transform: translate(0, 0);
+    }
+
+    50% {
+    transform: translate(50px, 0);
+    }
+
+    80% {
+    transform: translate(-50px, 0);
+    }
+
+}
+
 
 /* -------------------------------------------------------- */
 /* ******************  contacto  ********************* */
