@@ -50,6 +50,19 @@ h1 {
     line-height: 130px;
 }
 
+h1.titulo {
+   
+    font-size: 6rem;
+    font-weight: 300;
+    line-height: 130px;
+    text-align: left;
+    margin: 0;
+    z-index: 1; /* Asegura que esté por encima de otros elementos si es necesario */
+}
+h2.titulo {
+    font-size: 3rem; 
+    font-weight: 500;;   
+}
 
 p {
     margin-bottom: 10px;
@@ -76,14 +89,70 @@ div.container {
 
 
 /* -------------------------------------------------------- */
-/* ******************  menu  ********************* */
+/* ******************  header  ********************* */
 /* -------------------------------------------------------- */
 
-.header {
-    width: 100%;
-    height: 800px;
+header {
+    max-width: 1800px;
+    margin: 0 auto; 
+    padding: 0;
+
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    height: 100vh; 
+    position: relative; 
 }
 
+.header {
+    height: 35rem;  
+}
+
+#slider {
+    margin-top: 0; /* Asegúrate que el slider esté alineado */
+}
+
+
+/* Estilos para el indicador de scroll (flecha) */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px; /* Coloca la flecha cerca de la parte inferior del header */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta el centro exacto */
+    z-index: 2;
+}
+
+/* Estilo para la flecha */
+.scroll-indicator .arrow {
+    font-size: 4rem;
+    color: red; /* O el color que prefieras */
+    opacity: 0.7;
+    animation: bounce 1.5s infinite; /* Aplica la animación de rebote */
+    cursor: pointer;
+}
+
+/* Animación para el efecto de rebote */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial */
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(10px); /* Mueve la flecha hacia abajo */
+        opacity: 1;
+    }
+}
+
+/* Para hacer que la flecha sea visible en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .scroll-indicator .arrow {
+        font-size: 2.5rem;
+    }
+}
+
+/* -------------------------------------------------------- */
+/* ******************  menú ********************* */
+/* -------------------------------------------------------- */
 
 nav {
     width: 100%;
@@ -130,7 +199,7 @@ nav.scrolled .isasvg-hover {
 div.item {
     position: relative;
     cursor: pointer;
-    transform: translate(0%, 30%);
+    transform: translate(0%, 50%);
 }
 
 div.firma {
@@ -403,14 +472,29 @@ p.presentacion span {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 
 .caja.imagen img {
     max-width: 100%;
     height: auto;
+    
+}
+.img24{
+    transition-duration: .4s;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
 }
 
+.caja.imagen:hover .img24{
+    transform: scale(1.2);
+    opacity: .4;
+}
 /* Media Query para pantallas pequeñas */
 @media (max-width: 768px) {
     .contenedor-cajas {
@@ -619,3 +703,64 @@ p.footer {
 }
 
 
+/* -------------------------------------------------------- */
+/* ******************  Plantilla  ********************* */
+/* -------------------------------------------------------- */
+/* -------------------------------------------------------- */
+/* ******************  Contenedor imags/videos  ********************* */
+/* -------------------------------------------------------- */
+
+
+/* Contenedor de multimedia */
+.contenMulti {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 20px; 
+    position: relative;
+    /* border:2px solid darkmagenta; */
+}
+
+/* Estilos comunes para los contenedores de imágenes y videos */
+.imgs_video {
+    flex: 1 1 30%; 
+    max-width: 30%; 
+    height: auto;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:10px;
+    position: relative;
+    overflow: hidden; /* Asegura que las imágenes y videos no excedan el contenedor */
+    transition: transform 0.5s ease-out; /* Suaviza el movimiento en scroll */    
+    margin-bottom: 50px; /* Agrega espacio en la parte inferior para evitar que se encimen */
+}
+
+/* Estilo para imágenes y videos dentro de los divs */
+.imgs_video img, .imgs_video video {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción original */
+    object-fit: cover; /* Asegura que las imágenes y videos se adapten sin distorsionarse */
+}
+.txt {
+    font-size: 2rem; /* Ajusta el tamaño del texto */   
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .imgs_video img, .imgs_video video {
+        width: 100%; /* Ocupa todo el ancho del contenedor */
+        height: auto; /* Mantiene la proporción original */
+        object-fit: cover;
+    }
+}
+
+div.info {
+    margin-top: 10rem;
+    border:1px solid blue;
+}
+.info p {
+    text-align: left;
+}

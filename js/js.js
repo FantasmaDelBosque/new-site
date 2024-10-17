@@ -99,25 +99,39 @@ document.addEventListener('DOMContentLoaded', function() {
   closeMenu.addEventListener('click', function() {
       menuOverlay.classList.remove('active');
   });
-
-  // Mover la firma hacia la izquierda al hacer scroll
-
 });
+
   
-
+// Mover la firma hacia la izquierda al hacer scroll
 $(document).ready(function() {
-  var headerHeight = $('.header').outerHeight(); // Obtiene la altura del header
+  var header = $('.header'); // Selecciona el header
   var nav = $('nav'); // Selecciona el elemento nav
+  var isSecondaryPage = $('body').hasClass('secondary-page'); // Verifica si es una página secundaria
+  var slider = $('#slider'); // Selecciona el slider
+  var sliderOffset = slider.offset().top;  // Obtiene la posición del slider
 
-  // Escucha el evento scroll
-  $(window).on('scroll', function() {
-      var scrollTop = $(window).scrollTop(); // Detecta la cantidad de scroll
+  // Si es una página secundaria, aplica la clase 'scrolled' directamente
+  if (isSecondaryPage) {
+      nav.addClass('scrolled');
+  } else {
+      // Escucha el evento scroll solo si no es una página secundaria
+      $(window).on('scroll', function() {
+          var scrollTop = $(window).scrollTop(); // Detecta la cantidad de scroll
 
-      // Si el usuario ha hecho scroll más allá del header
-      if (scrollTop > headerHeight) {
-          nav.addClass('scrolled'); // Añade la clase para reducir y mover el menú
-      } else {
-          nav.removeClass('scrolled'); // Elimina la clase cuando el usuario vuelve al tope
-      }
-  });
+          // Si el usuario ha hecho scroll más allá del inicio del slider (ajustado con un pequeño margen)
+          if (scrollTop >= (sliderOffset - nav.outerHeight())) {  // Ajusta aquí si es necesario
+              var headerHeight = header.outerHeight(); // Mide el header cuando el slider aparece
+              console.log("Altura del header al inicio del slider: " + headerHeight + "px");
+
+              nav.addClass('scrolled'); // Mueve el menú cuando comienza el slider
+          } else {
+              nav.removeClass('scrolled'); // Elimina la clase cuando el usuario está por encima del slider
+          }
+      });
+  }
 });
+
+
+
+
+
