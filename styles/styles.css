@@ -675,8 +675,6 @@ ul.servicios li:nth-child(1)::before {
     }
 
 }
-
-
 /* -------------------------------------------------------- */
 /* ******************  contacto  ********************* */
 /* -------------------------------------------------------- */
@@ -798,7 +796,7 @@ div.info {
 .navigation-buttons {
     display: flex;
     justify-content: center;
-    gap: 2rem; /* Espacio entre los botones */
+    gap: 2rem; 
     margin: 2rem 0; /* Márgenes para dar espacio al footer */
 }
 
@@ -809,7 +807,7 @@ div.info {
     position: relative;
     display: inline-block;
     font-size: 1.2rem;
-    color: #8993aa; /* Color base */
+    color: #8993aa; 
     overflow: hidden;
     background: linear-gradient(to right, #d2b3d8, #ac72b7 50%, #8993aa 50%);
     background-clip: text;
@@ -821,16 +819,9 @@ div.info {
 }
 
 .btn-nav:hover {
-    background-position: 0 100%; /* Efecto hover */
-    color: transparent; /* Oculta el color de texto original */
+    background-position: 0 100%; 
+    color: transparent; 
 }
 
-.btn-prev {
-    /* Puedes personalizar estilos adicionales si quieres algo distinto para el botón de "Atrás" */
-}
-
-.btn-next {
-    /* Puedes personalizar estilos adicionales si quieres algo distinto para el botón de "Siguiente" */
-}
 
 
