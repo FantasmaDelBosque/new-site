@@ -123,32 +123,51 @@ header {
 }
 
 /* Estilo para la flecha */
-.scroll-indicator .arrow {
-    font-size: 4rem;
-    color: red; /* O el color que prefieras */
-    opacity: 0.7;
-    animation: bounce 1.5s infinite; /* Aplica la animación de rebote */
+.scroll-indicator .scroll {
+    font-size: 1.2rem;
+    animation: slideDown 1.5s infinite; /* Aplica una nueva animación de deslizamiento */
     cursor: pointer;
+    display: inline-block;
+    text-align: center; /* Centra la flecha o el texto */
+    margin-bottom: 20px; /* Espacio para separación */
 }
 
-/* Animación para el efecto de rebote */
-@keyframes bounce {
+/* Nueva animación de deslizamiento hacia abajo */
+@keyframes slideDown {
     0%, 100% {
         transform: translateY(0); /* Posición inicial */
-        opacity: 0.7;
     }
     50% {
-        transform: translateY(10px); /* Mueve la flecha hacia abajo */
-        opacity: 1;
+        transform: translateY(20px); /* Mueve hacia abajo para indicar scroll */
     }
 }
 
-/* Para hacer que la flecha sea visible en pantallas más pequeñas */
+/* Para hacer que la flecha o el texto sea visible en pantallas más pequeñas */
 @media (max-width: 768px) {
-    .scroll-indicator .arrow {
-        font-size: 2.5rem;
+    .scroll-indicator .scroll {
+        font-size: 2.5rem; /* Aumenta el tamaño para pantallas pequeñas */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* -------------------------------------------------------- */
 /* ******************  menú ********************* */
@@ -687,7 +706,7 @@ p.footer {
     font-weight: 600;
     color: #8993aa;
     overflow: hidde;
-    background: linear-gradient(to right, #bb8cc5, #ac72b7 50%, #8993aa 50%);
+    background: linear-gradient(to right, #d2b3d8, #ac72b7 50%, #8993aa 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -757,6 +776,11 @@ p.footer {
     }
 }
 
+/* -------------------------------------------------------- */
+/* ******************  Texto  ********************* */
+/* -------------------------------------------------------- */
+
+
 div.info {
     margin-top: 10rem;
     border:1px solid blue;
@@ -764,3 +788,49 @@ div.info {
 .info p {
     text-align: left;
 }
+
+
+/* -------------------------------------------------------- */
+/* ******************  botones atras/next    ********************* */
+/* -------------------------------------------------------- */
+
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Espacio entre los botones */
+    margin: 2rem 0; /* Márgenes para dar espacio al footer */
+}
+
+.btn-nav {
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #8993aa; /* Color base */
+    overflow: hidden;
+    background: linear-gradient(to right, #d2b3d8, #ac72b7 50%, #8993aa 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+}
+
+.btn-nav:hover {
+    background-position: 0 100%; /* Efecto hover */
+    color: transparent; /* Oculta el color de texto original */
+}
+
+.btn-prev {
+    /* Puedes personalizar estilos adicionales si quieres algo distinto para el botón de "Atrás" */
+}
+
+.btn-next {
+    /* Puedes personalizar estilos adicionales si quieres algo distinto para el botón de "Siguiente" */
+}
+
+

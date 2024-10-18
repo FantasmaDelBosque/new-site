@@ -106,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 $(document).ready(function() {
   var header = $('.header'); // Selecciona el header
   var nav = $('nav'); // Selecciona el elemento nav
+  var scrollIndicator = $('.scroll-indicator'); // Selecciona la señal de "desliza hacia abajo"
   var isSecondaryPage = $('body').hasClass('secondary-page'); // Verifica si es una página secundaria
   var slider = $('#slider'); // Selecciona el slider
   var sliderOffset = slider.offset().top;  // Obtiene la posición del slider
@@ -113,6 +114,7 @@ $(document).ready(function() {
   // Si es una página secundaria, aplica la clase 'scrolled' directamente
   if (isSecondaryPage) {
       nav.addClass('scrolled');
+      scrollIndicator.hide(); // Oculta la señal en páginas secundarias
   } else {
       // Escucha el evento scroll solo si no es una página secundaria
       $(window).on('scroll', function() {
@@ -124,8 +126,10 @@ $(document).ready(function() {
               console.log("Altura del header al inicio del slider: " + headerHeight + "px");
 
               nav.addClass('scrolled'); // Mueve el menú cuando comienza el slider
+              scrollIndicator.hide(); // Oculta la señal de "desliza hacia abajo"
           } else {
               nav.removeClass('scrolled'); // Elimina la clase cuando el usuario está por encima del slider
+              scrollIndicator.show(); // Muestra la señal de nuevo si el usuario está arriba
           }
       });
   }
