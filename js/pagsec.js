@@ -1,5 +1,5 @@
 
-const topPositions = ['10rem', '30rem', '15rem']; // Valores de top disponibles
+const topPositions = ['10rem', '30rem', '18rem']; // Valores de top disponibles
 let currentIndex = 0; // Controla el índice actual
 
 document.querySelectorAll('.imgs_video').forEach((div, index) => {
@@ -16,3 +16,32 @@ document.querySelectorAll('.imgs_video').forEach((div, index) => {
 
     div.style.marginBottom = '5rem';  // Añade margen para evitar que los divs se encimen
 });
+
+//efectos de aparición y movimiento 
+
+
+$(document).ready(function () {
+    // Aplicar la clase 'visible' a la primera imagen/video al cargar la página
+    $('.imgs_video').first().addClass('visible');
+
+    // Detecta el scroll del usuario
+    $(window).on('scroll', function () {
+        $('.imgs_video').each(function () {
+            var scrollTop = $(window).scrollTop(); // Posición del scroll
+            var elementOffset = $(this).offset().top; // Posición del elemento desde la parte superior
+            var windowHeight = $(window).height(); // Altura de la ventana
+            var distance = elementOffset - scrollTop; // Distancia entre el elemento y el scroll
+            var elementHeight = $(this).outerHeight(); // Altura del elemento
+
+            // Verifica si el elemento está visible en la ventana (ya sea parte de él entrando o saliendo)
+            if (distance < windowHeight - 100 && distance + elementHeight > 100) {
+                // Si el elemento está visible en la ventana, agregar la clase 'visible'
+                $(this).addClass('visible');
+            } else {
+                // Si el elemento ya no está visible, puedes quitar la clase si deseas
+                $(this).removeClass('visible'); // Opcional: si quieres que desaparezcan al salir
+            }
+        });
+    });
+});
+

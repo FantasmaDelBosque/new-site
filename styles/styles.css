@@ -774,6 +774,22 @@ p.footer {
     }
 }
 
+
+
+/* Por defecto, las imágenes y videos están ligeramente translúcidos y desplazados */
+.imgs_video {
+    opacity: 0;
+    transform: translateY(30px); /* Desplaza hacia abajo inicialmente */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Transición suave */
+}
+
+/* Cuando el contenedor es visible, se aplican estos estilos */
+.imgs_video.visible {
+    opacity: 1; /* Aparece completamente */
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+
 /* -------------------------------------------------------- */
 /* ******************  Texto  ********************* */
 /* -------------------------------------------------------- */
