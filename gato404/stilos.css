@@ -1,0 +1,100 @@
+/**{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}*/
+body{
+	background-repeat: no-repeat;
+}
+
+.gato {
+    position: relative;
+    width: 300px; /* Ajusta el tamaño del contenedor según el tamaño de tu SVG */
+    margin: 0 auto;
+}
+
+.gato img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.parpados {
+    position: absolute;
+    top: 28%; /* Ajusta esta propiedad para subir los párpados */
+    left: 46%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 30%; /* Ajusta el ancho al tamaño de la imagen */
+}
+
+.parpado {
+    width: 50px; /* Ajusta el tamaño de los párpados según el tamaño del gato */
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+.parpado::after {
+    content: '';
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    background: #000; 
+    border : 1px solid transparent;
+    animation: parpadeo 8s ease-in infinite;
+}
+
+@keyframes parpadeo {
+  0%, 25% {
+    top: -125%;
+  }
+  60% {
+    top: -10%;
+  }
+}
+
+.vapor {
+	width: 30px;
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 46%;
+	left: 77%;
+}
+.vapor span {
+	width: 0.1em;
+	min-width: 1px;
+	background-color: #a7a7a7;
+	animation: evaporation 2s linear infinite;
+	filter: opacity(0);
+}
+
+.vapor span:nth-child(1) {
+	animation-delay: 0.9s;
+}
+
+.vapor span:nth-child(2) {
+	animation-delay: 0.3s;
+}
+
+.gato .vapor span:nth-child(3) {
+	animation-delay: 0.6s;
+}
+
+
+
+@keyframes evaporation {
+	from {
+		transform: translateY(0);
+		filter: opacity(1) blur(0.1em);
+	}
+
+	to {
+		transform: translateY(-4em);
+		filter: opacity(0) blur(0.4em);
+	}
+}

@@ -1,0 +1,89 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Space Mono", monospace;
+    line-height: 1.6;
+    color: #854a91;
+    background-color: #e7e6e4;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    text-align: center;    
+}
+
+p {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.error-page {
+    text-align: center;
+    padding: 20px;
+    
+}
+
+.error-content {
+    max-width: 1800px; /* Ancho máximo del contenedor */
+    margin: 0 auto;   
+}
+
+.error-image {
+    width: 100%; 
+    max-width: 300px; 
+    margin-bottom: 20px; 
+}
+
+
+.btn-home {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 2.2rem;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    color: #8993aa;
+    overflow: hidde;
+    background: linear-gradient(to right, #d2b3d8, #ac72b7 50%, #8993aa 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none; /* text decorations are clipped in WebKit browsers */   
+}
+
+.btn-home:hover {
+    background-position: 0 100%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .error-image {
+        max-width: 200px;
+    }
+    .btn-home{
+        font-size: 1.8rem;;
+    }
+}
