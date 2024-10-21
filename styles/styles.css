@@ -287,6 +287,23 @@ div.firma img:nth-child(2) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .isasvg-hover {
     transition: transform 0.3s ease, opacity 0.3s ease;    
 }
@@ -306,7 +323,9 @@ div.firma img:nth-child(2) {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background: linear-gradient(#BE75BF, #D08FD9, #C599F2, #B488F2, #A47ED9);
+    /* background: linear-gradient(#914a8b, #854a91); */
+    /* background-color:#854a91; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -324,7 +343,7 @@ div.firma img:nth-child(2) {
 
 .menu-content {
     text-align: center;
-    color: white;
+    color: #FFF;
 }
 
 .menu-content ul {
@@ -337,9 +356,14 @@ div.firma img:nth-child(2) {
 }
 
 .menu-content ul li a {
-    color: white;
+    color: #FFF;
     font-size: 2rem;
     text-decoration: none;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+.menu-content ul li a:hover {
+    color: #854a91;  
+    font-size: 2.2rem; 
 }
 
 /* Botón de cerrar el menú */
@@ -347,10 +371,27 @@ div.firma img:nth-child(2) {
     position: absolute;
     top: 20px;
     right: 30px;
-    font-size: 3rem;
-    color: red;
+    width: 40px; /* Ajusta el tamaño del SVG */
+    height: 40px; /* Ajusta el tamaño del SVG */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    transition: transform 0.3s ease, fill 0.3s ease;
 }
+.close-menu svg {
+    width: 100%; /* SVG se ajusta al contenedor */
+    height: 100%;
+    fill: #FFF;
+    transition: transform 0.3s ease, fill 0.3s ease; 
+}
+
+.close-menu:hover svg {
+    transform: scale(1.2);
+    fill: #854a91; 
+}
+
+
 
 /* -------------------------------------------------------- */
 /* ******************  Empieza Slider  ********************* */
@@ -369,26 +410,26 @@ div.firma img:nth-child(2) {
     z-index: 20;
     top: 50%;
     transform: translateY(-50%);
-    text-align: center;
-    background-color: rgba(133, 74, 145, 0.1);
-    border-radius: 50%;
     cursor: pointer;
-    transition-duration: .4s;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease, fill 0.3s ease;
+    background-color: transparent; /* Eliminamos el fondo circular */
 }
 
 
 .control_slider svg {
-    width: 24px;
-    height: 24px;
+    width: 33px;
+    height: 33px;
     fill: #fff;
+    transition: transform 0.3s ease, fill 0.3s ease;
 }
 
-.control_slider:hover {
+.control_slider:hover svg {
     /* background-color: rgba(0, 0, 0, .8); */
-    background-color: #854a91;
+    transform: scale(1.2);
+    fill: #854a91;
 }
 
 .controlL {
