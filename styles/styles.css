@@ -50,20 +50,6 @@ h1 {
     line-height: 130px;
 }
 
-h1.titulo {
-   
-    font-size: 6rem;
-    font-weight: 300;
-    line-height: 130px;
-    text-align: left;
-    margin: 0;
-    z-index: 1; /* Asegura que esté por encima de otros elementos si es necesario */
-}
-h2.titulo {
-    font-size: 3rem; 
-    font-weight: 500;;   
-}
-
 p {
     margin-bottom: 10px;
     font-size: 2rem;
@@ -77,16 +63,18 @@ li {
 span.bold {
     font-weight: 600;
 }
+/* @media (max-width: 600px){
+    span.bold {
+        font-weight: 300;
+    }   
+} */
 
 div.container {
     max-width: 1800px;
     /* Ancho máximo del contenido */
     margin: 0 auto;
-    padding: 2rem 0rem;
-    /* border:1px solid darkorchid; */
+    padding: 2rem 2rem;
 }
-
-
 
 /* -------------------------------------------------------- */
 /* ******************  header  ********************* */
@@ -102,10 +90,6 @@ header {
     align-items: center; 
     height: 100vh; 
     position: relative; 
-}
-
-.header {
-    height: 35rem;  
 }
 
 #slider {
@@ -124,7 +108,7 @@ header {
 
 /* Estilo para la flecha */
 .scroll-indicator .scroll {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     animation: slideDown 1.5s infinite; /* Aplica una nueva animación de deslizamiento */
     cursor: pointer;
     display: inline-block;
@@ -145,28 +129,9 @@ header {
 /* Para hacer que la flecha o el texto sea visible en pantallas más pequeñas */
 @media (max-width: 768px) {
     .scroll-indicator .scroll {
-        font-size: 2.5rem; /* Aumenta el tamaño para pantallas pequeñas */
+        font-size: 1rem; /* Aumenta el tamaño para pantallas pequeñas */
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* -------------------------------------------------------- */
@@ -213,7 +178,6 @@ nav.scrolled .isasvg-hover {
     width: 100px; /* Tamaño más pequeño para el nombre artístico */
     height: auto;
 }
-
 
 div.item {
     position: relative;
@@ -285,25 +249,10 @@ div.firma img:nth-child(2) {
         /* Mantén scale en 1 */
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.firma_txt{
+    width: 100%;
+    display:flex;
+}
 .isasvg-hover {
     transition: transform 0.3s ease, opacity 0.3s ease;    
 }
@@ -314,6 +263,38 @@ div.firma img:nth-child(2) {
 }
 
 
+/* Ocultar la imagen pequeña por defecto */
+.static-logo {
+    display: none;
+}
+
+/* Mostrar la imagen pequeña solo en pantallas pequeñas (<= 768px) cuando se hace scroll */
+@media (max-width: 768px) {
+    .static-logo {
+        display: none;  /* Oculta por defecto en pantallas pequeñas hasta que haya scroll */
+    }
+
+    /* Ocultar las imágenes de la mariposa y las piernas al hacer scroll en pantallas pequeñas */
+    .scrolled .mariposa,
+    .scrolled .piernas {
+        display: none;
+    }
+
+    /* Ocultar el texto de 'Isa Cz' al hacer scroll en pantallas pequeñas */
+    .scrolled .firma_txt {
+        display: none;
+    }
+
+    /* Mostrar la imagen pequeña cuando se hace scroll en pantallas pequeñas */
+    .scrolled .static-logo {
+        display: block;
+        position: fixed; /* Se mantiene fija al hacer scroll */
+        left: 10px; /* Ajustar según el diseño */
+        top: 10px;  /* Ajustar según el diseño */
+        width: 80px; /* Ajustar tamaño según se necesite */
+        height: auto;
+    }
+}
 
 /* Ocultar el menú por defecto */
 
@@ -390,6 +371,8 @@ div.firma img:nth-child(2) {
     transform: scale(1.2);
     fill: #854a91; 
 }
+
+
 
 
 
@@ -498,9 +481,6 @@ div.firma img:nth-child(2) {
 
 
 /* -------------------------------------------------------- */
-/* ******************  Termina Slider  ********************* */
-/* -------------------------------------------------------- */
-/* -------------------------------------------------------- */
 /* ******************  presentación  ********************* */
 /* -------------------------------------------------------- */
 
@@ -510,13 +490,16 @@ div.firma img:nth-child(2) {
     vertical-align: middle; /* Alinea el ícono con el texto */
 }
 
+@media (max-width: 600px) { 
+    .icono-rayo {
+        width: 2rem; 
+    }
+}
+
+
 div.text {
     max-width: 50%;
 
-}
-
-p.presentacion span {
-    font-size: 2rem;
 }
 
 .contenedor-cajas {
@@ -679,6 +662,11 @@ ul.servicios li {
     position: relative; /* Añadido para posicionar el icono correctamente */
     padding-left: 1.5em; /* Ajustar el espacio a la izquierda para el icono */
 }
+@media (max-width: 600px){
+    ul.servicios li {
+        font-size: 1.6rem;
+    }
+}
 
 ul.servicios li::before {
     content: ""; /* Ya no usaremos "⚡", sino un SVG como fondo */
@@ -759,7 +747,11 @@ p.footer {
     background-position: 0 100%;
     
 }
-
+@media (max-width: 600px) {
+    .enlace {
+        font-size: 1em; 
+    }
+}
 
 /* -------------------------------------------------------- */
 /* ******************  Plantilla  ********************* */
@@ -776,24 +768,25 @@ p.footer {
     justify-content: space-between; 
     gap: 20px; 
     position: relative;
-    /* border:2px solid darkmagenta; */
 }
 
-/* Estilos comunes para los contenedores de imágenes y videos */
+
 .imgs_video {
     flex: 1 1 30%; 
     max-width: 30%; 
-    height: auto;
+    height: 100%;
     border: 1px solid green;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    gap:10px;
+    align-items: left;
+    gap:20px;
     position: relative;
     overflow: hidden; /* Asegura que las imágenes y videos no excedan el contenedor */
+    opacity: 1;
+    transform: translateY(30px); 
     transition: transform 0.5s ease-out; /* Suaviza el movimiento en scroll */    
-    margin-bottom: 50px; /* Agrega espacio en la parte inferior para evitar que se encimen */
+    
 }
 
 /* Estilo para imágenes y videos dentro de los divs */
@@ -803,47 +796,77 @@ p.footer {
     object-fit: cover; /* Asegura que las imágenes y videos se adapten sin distorsionarse */
 }
 .txt {
-    font-size: 2rem; /* Ajusta el tamaño del texto */   
+    font-size: 2rem;    
 }
 
 /* Ajuste para pantallas más pequeñas */
 @media (max-width: 768px) {
-    .imgs_video img, .imgs_video video {
-        width: 100%; /* Ocupa todo el ancho del contenedor */
-        height: auto; /* Mantiene la proporción original */
-        object-fit: cover;
+    .imgs_video {
+        flex: 1 1 100%; /* Cada imagen o video ocupa el 100% del ancho */
+        max-width: 100%; /* Asegura que no exceda el contenedor */
+        border: 1px solid red;
+
+    }
+    
+    .txt {
+        font-size: 1.5rem; /* Ajusta el tamaño del texto en pantallas pequeñas */
     }
 }
 
 
-
 /* Por defecto, las imágenes y videos están ligeramente translúcidos y desplazados */
-.imgs_video {
+/* .imgs_video {
     opacity: 0;
-    transform: translateY(30px); /* Desplaza hacia abajo inicialmente */
-    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Transición suave */
-}
+    transform: translateY(30px); 
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; 
+} */
 
 /* Cuando el contenedor es visible, se aplican estos estilos */
 .imgs_video.visible {
-    opacity: 1; /* Aparece completamente */
-    transform: translateY(0); /* Vuelve a su posición original */
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
 
 /* -------------------------------------------------------- */
 /* ******************  Texto  ********************* */
 /* -------------------------------------------------------- */
-
+.header {
+    height: 25rem;  
+}
+@media (max-width: 768px){
+    .header {
+        height: 25rem;  
+    } 
+}
+h1.titulo {
+    padding: 2rem 2rem;
+    font-size: 6rem;
+    font-weight: 300;
+    line-height: 130px;
+    text-align: left;
+    margin: 0;
+    z-index: 1; 
+}
+h2.titulo {
+    font-size: 3rem; 
+    font-weight: 500; 
+}
+@media (max-width: 768px){
+    h1.titulo {
+        font-size: 3rem;
+    }
+    h2.titulo {
+        font-size: 2rem; 
+    }
+}
 
 div.info {
     margin-top: 10rem;
-    border:1px solid blue;
 }
 .info p {
     text-align: left;
 }
-
 
 /* -------------------------------------------------------- */
 /* ******************  botones atras/next    ********************* */
@@ -880,6 +903,8 @@ div.info {
     color: transparent; 
 }
 
-
-
-
+@media (max-width: 768px) {
+    .btn-nav {
+        font-size: 1rem;
+    }
+}

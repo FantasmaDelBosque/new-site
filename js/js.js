@@ -83,59 +83,94 @@ $(document).ready(function(){
     }
   });
 
+
   // Segundo código (Menú y firma sticky)
-document.addEventListener('DOMContentLoaded', function() {
-  const menu = document.querySelector('.item');
-  const menuOverlay = document.getElementById('menu-overlay');
-  const closeMenu = document.getElementById('close-menu');
-  const isaCz = document.getElementById('isacz');
 
-  // Mostrar el menú cuando se hace clic en la mariposa/piernas
-  menu.addEventListener('click', function() {
-      menuOverlay.classList.add('active');
-  });
 
-  // Cerrar el menú cuando se hace clic en el botón de cerrar
-  closeMenu.addEventListener('click', function() {
-      menuOverlay.classList.remove('active');
-  });
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const menu = document.querySelector('.item');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const closeMenu = document.getElementById('close-menu');
+    const firmaMariposa = document.querySelector('.mariposa');
+    const firmaPiernas = document.querySelector('.piernas');
+    const firmaStaticLogo = document.createElement('img');
+    firmaStaticLogo.src = 'imgs/firmaIMG.png';  // Imagen pequeña
+    firmaStaticLogo.alt = 'logo simple';
+    firmaStaticLogo.classList.add('static-logo');  // Clase para aplicar estilos
+
+    // Función para manejar el cambio de firma al hacer scroll en pantallas pequeñas
+    function handleScrollChange() {
+        if (window.innerWidth <= 768) {  // Solo en pantallas pequeñas
+            firmaMariposa.style.display = 'none';
+            firmaPiernas.style.display = 'none';
+            if (!document.querySelector('.static-logo')) {
+                document.querySelector('.firma').appendChild(firmaStaticLogo);
+            }
+        } else {
+            firmaMariposa.style.display = 'block';
+            firmaPiernas.style.display = 'block';
+            if (document.querySelector('.static-logo')) {
+                firmaStaticLogo.remove();  // Elimina la imagen pequeña si está visible
+            }
+        }
+    }
+
+    // Mostrar el menú cuando se hace clic en la firma
+    menu.addEventListener('click', function() {
+        menuOverlay.classList.add('active');
+    });
+
+    // Cerrar el menú cuando se hace clic en el botón de cerrar
+    closeMenu.addEventListener('click', function() {
+        menuOverlay.classList.remove('active');
+    });
+
+    // Función para manejar el cambio de firma al hacer scroll
+    $(document).ready(function() {
+        var header = $('.header');
+        var nav = $('nav');
+        var scrollIndicator = $('.scroll-indicator');
+        var isSecondaryPage = $('body').hasClass('secondary-page');
+        var slider = $('#slider');
+        var sliderOffset = slider.offset().top;
+
+        if (isSecondaryPage) {
+            nav.addClass('scrolled');
+            scrollIndicator.hide();
+        } else {
+            $(window).on('scroll', function() {
+                var scrollTop = $(window).scrollTop();
+
+                // Si el usuario ha hecho scroll más allá del inicio del slider
+                if (scrollTop >= (sliderOffset - nav.outerHeight())) {
+                    nav.addClass('scrolled');
+                    scrollIndicator.hide();
+
+                    // Cambio de firma en pantallas pequeñas al hacer scroll
+                    handleScrollChange();
+                } else {
+                    nav.removeClass('scrolled');
+                    scrollIndicator.show();
+
+                    // Restablecer la firma a su estado inicial si el scroll está en la parte superior
+                    if (window.innerWidth <= 768) {
+                        firmaMariposa.style.display = 'block';
+                        firmaPiernas.style.display = 'block';
+                        if (document.querySelector('.static-logo')) {
+                            firmaStaticLogo.remove();  // Elimina la imagen pequeña
+                        }
+                    }
+                }
+            });
+        }
+    });
+
+    // Ejecutar la función al cambiar el tamaño de la ventana
+    window.addEventListener('resize', function() {
+        if ($(window).scrollTop() >= sliderOffset - nav.outerHeight()) {
+            handleScrollChange();
+        }
+    });
 });
-
-  
-// Mover la firma hacia la izquierda al hacer scroll
-$(document).ready(function() {
-  var header = $('.header'); // Selecciona el header
-  var nav = $('nav'); // Selecciona el elemento nav
-  var scrollIndicator = $('.scroll-indicator'); // Selecciona la señal de "desliza hacia abajo"
-  var isSecondaryPage = $('body').hasClass('secondary-page'); // Verifica si es una página secundaria
-  var slider = $('#slider'); // Selecciona el slider
-  var sliderOffset = slider.offset().top;  // Obtiene la posición del slider
-
-  // Si es una página secundaria, aplica la clase 'scrolled' directamente
-  if (isSecondaryPage) {
-      nav.addClass('scrolled');
-      scrollIndicator.hide(); // Oculta la señal en páginas secundarias
-  } else {
-      // Escucha el evento scroll solo si no es una página secundaria
-      $(window).on('scroll', function() {
-          var scrollTop = $(window).scrollTop(); // Detecta la cantidad de scroll
-
-          // Si el usuario ha hecho scroll más allá del inicio del slider (ajustado con un pequeño margen)
-          if (scrollTop >= (sliderOffset - nav.outerHeight())) {  // Ajusta aquí si es necesario
-              var headerHeight = header.outerHeight(); // Mide el header cuando el slider aparece
-              console.log("Altura del header al inicio del slider: " + headerHeight + "px");
-
-              nav.addClass('scrolled'); // Mueve el menú cuando comienza el slider
-              scrollIndicator.hide(); // Oculta la señal de "desliza hacia abajo"
-          } else {
-              nav.removeClass('scrolled'); // Elimina la clase cuando el usuario está por encima del slider
-              scrollIndicator.show(); // Muestra la señal de nuevo si el usuario está arriba
-          }
-      });
-  }
-});
-
-
-
-
-
