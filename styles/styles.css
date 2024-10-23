@@ -261,8 +261,16 @@ div.firma img:nth-child(2) {
     transform: scale(1.1);
     opacity: 0.8;
 }
-
-
+@media (max-width: 768px) {
+    div.item {
+        transform: translate(0%, 40%);
+    }
+}
+@media (max-width: 375px) {
+    div.item {
+        transform: translate(0%, 20%);
+    }
+}
 /* Ocultar la imagen pequeña por defecto */
 .static-logo {
     display: none;
@@ -270,6 +278,8 @@ div.firma img:nth-child(2) {
 
 /* Mostrar la imagen pequeña solo en pantallas pequeñas (<= 768px) cuando se hace scroll */
 @media (max-width: 768px) {
+
+
     .static-logo {
         display: none;  /* Oculta por defecto en pantallas pequeñas hasta que haya scroll */
     }
