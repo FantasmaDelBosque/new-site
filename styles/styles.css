@@ -497,18 +497,18 @@ div.firma img:nth-child(2) {
 }
 
 
-div.text {
+/* div.text {
     max-width: 50%;
 
-}
+} */
 
 .contenedor-cajas {
     width: 100%;
     height: auto;
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .caja.imagen {
@@ -662,9 +662,9 @@ ul.servicios li {
     position: relative; /* Añadido para posicionar el icono correctamente */
     padding-left: 1.5em; /* Ajustar el espacio a la izquierda para el icono */
 }
-@media (max-width: 600px){
+@media (max-width: 768px){
     ul.servicios li {
-        font-size: 1.6rem;
+        font-size: 1rem;
     }
 }
 
@@ -747,9 +747,9 @@ p.footer {
     background-position: 0 100%;
     
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .enlace {
-        font-size: 1em; 
+        font-size: .8em; 
     }
 }
 
@@ -803,13 +803,12 @@ p.footer {
     .imgs_video {
         flex: 1 1 100%; /* Cada imagen o video ocupa el 100% del ancho */
         max-width: 100%; /* Asegura que no exceda el contenedor */
-        border: 1px solid red;
-
     }
     
     .txt {
         font-size: 1.5rem; /* Ajusta el tamaño del texto en pantallas pequeñas */
     }
+    
 }
 
 
@@ -857,6 +856,11 @@ h2.titulo {
     }
     h2.titulo {
         font-size: 2rem; 
+    }
+    p {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        font-weight: 300;
     }
 }
 
