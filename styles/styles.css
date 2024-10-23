@@ -775,7 +775,6 @@ p.footer {
     flex: 1 1 30%; 
     max-width: 30%; 
     height: 100%;
-    border: 1px solid green;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
