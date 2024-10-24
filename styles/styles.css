@@ -271,6 +271,16 @@ div.firma img:nth-child(2) {
         transform: translate(0%, 20%);
     }
 }
+
+@media not all and (min-resolution: 0.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+      /* Tus estilos específicos para Safari */
+      div.item {
+          transform: translate(0%, 45%); /* Ajuste solo para Safari */
+      }
+    }
+  }
+  
 /* Ocultar la imagen pequeña por defecto */
 .static-logo {
     display: none;
