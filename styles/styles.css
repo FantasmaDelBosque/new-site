@@ -309,7 +309,7 @@ div.firma img:nth-child(2) {
     .scrolled .static-logo {
         display: block;
         position: fixed; /* Se mantiene fija al hacer scroll */
-        left: 10px; /* Ajustar según el diseño */
+        left: -5px; /* Ajustar según el diseño */
         top: 10px;  /* Ajustar según el diseño */
         width: 80px; /* Ajustar tamaño según se necesite */
         height: auto;
