@@ -883,6 +883,11 @@ h2.titulo {
         font-weight: 300;
     }
 }
+@media (max-width: 450px){
+    h1.titulo {
+        font-size: 2rem;
+    }
+}
 
 div.info {
     margin-top: 10rem;
